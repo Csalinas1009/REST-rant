@@ -11,7 +11,7 @@ app.get('/', (req, res) => {
 
 app.get('*', (req,res)=>{
 
-    res.status(404).send('<h1>404 ERROR NOT FOUND HOMIE</h1>')
+    res.status(404).send('<h1>ERROR. 404. WARNING. WARNING.</h1>')
 })
 
 app.listen(process.env.PORT)
