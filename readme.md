@@ -2,12 +2,10 @@
 Rest-Rant is an application where users can review restaurants.
 As a user I need a ratings feature so i can review restaurants.
 colors: Primary:white, secondary: Teal, highlight: Orange
-
-
 ## Routes
 
 | Method | Path | Purpose |
-| ------ | ------------------------------------- |
+| ------ | ------------------------------------- | ----------------------------- |
 | GET | `/` | The home page |
 | GET | `/places` | Index page listing all places |
 | GET | `/places/new` | New form for a place |
@@ -18,16 +16,3 @@ colors: Primary:white, secondary: Teal, highlight: Orange
 | DELETE | `/places/:id` | Delete a place |
 | POST | `/places/:id/rant` | Add rant to a place |
 | DELETE | `/places/:id/rant/:rantId` | Delete a rant |
-
-## Database
-
-**places** 
-
-| Field | Type |
-| ---------- | ------------ |
-| _id | Object ID |
-| name | String |
-| city | String |
-| state | String |
-| cuisines | String |
-| pic | String |
