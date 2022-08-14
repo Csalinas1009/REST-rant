@@ -10,10 +10,6 @@ function home() {
                 <div>
                     <img className='birdup' src='/images/mikhail-vasilyev-gGC63oug3iY-unsplash.jpg'></img>
                 </div>
-                <a href='/places'>
-                    <button className=' btn btn-primary'>Places Page</button>
-                </a>
-
             </main>
         </Def>
     )
