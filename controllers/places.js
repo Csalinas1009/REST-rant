@@ -1,7 +1,7 @@
 const router = require('express').Router()
 const places = require('../models/places.js')
 
-router.get('/', (req, res) =>{
+router.get('/', (req, res) => {
   res.render('places/index', { places })
 })
 
@@ -40,6 +40,49 @@ router.post('/', (req, res) => {
   res.redirect('/places')
 })
 
+router.get('/:id/edit', (req, res) => {
+  let id = Number(req.params.id)
+  if (isNaN(id)) {
+    res.render('error404')
+  }
+  else if (!places[id]) {
+    res.render('error404')
+  }
+  else {
+    res.render('places/edit', { place: places[id], index: id })
+  }
+})
+
+router.put('/:id', (req, res) => {
+  console.log('We are about ot update!!', req.params)
+  let id = Number(req.params.id)
+  console.log('this sour id to update', id)
+  if (isNaN(id)) {
+    res.render('error404')
+  }
+  else if (!places[id]) {
+    console.log('WE HIT HTE EORR PAGE!!')
+    res.render('error404')
+  }
+  else {
+    if (!req.body.pic) {
+
+      req.body.pic = 'http://placekitten.com/400/400'
+    }
+    if (!req.body.city) {
+      req.body.city = 'Anytown'
+    }
+    if (!req.body.state) {
+      req.body.state = 'USA'
+    }
+
+    places[id] = req.body
+    console.log('We are about to redired to view page!!! all good!!')
+    res.redirect(`/places/${id}`)
+  }
+})
+
+
 router.delete('/:id', (req, res) => {
   let id = Number(req.params.id)
   if (isNaN(id)) {
@@ -53,9 +96,6 @@ router.delete('/:id', (req, res) => {
     res.redirect('/places')
   }
 })
-
-
-
 
 
 
