@@ -11,7 +11,10 @@ function show(data) {
                     <p>currently unrated</p>
                 </div>
                 <div>
-                    <h2 className='desriptionH2'>Description</h2>
+                    <img src={data.place.pic} alt={data.place.name} />
+                    <h3>
+                        Located in {data.place.city}, {data.place.state}
+                    </h3>
                 </div>
                 <div>
                     <h2 className='commentsH2'>Comments</h2>
@@ -20,6 +23,12 @@ function show(data) {
                 <a href={`/places/${data.id}/edit`} className="btn btn-warning">
                     Edit
                 </a>
+                <h3>
+                    {data.place.showEstablished()}
+                </h3>
+                <h4>
+                    Serving {data.place.cuisines}
+                </h4>
                 <form method="POST" action={`/places/${data.id}?_method=DELETE`}>
                     <button type="submit" className="btn btn-danger">
                         Delete
@@ -31,4 +40,16 @@ function show(data) {
 }
 
 module.exports = show
+
+
+
+
+
+
+
+
+
+
+
+
 
